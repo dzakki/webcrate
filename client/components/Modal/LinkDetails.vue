@@ -51,8 +51,9 @@
           <img :src="imageUrl">
         </div>
       </div>
-      <textarea-autosize v-if="editable" v-model="linkDescription" :title="editable && 'Click to edit description'" class="no-input description" placeholder="Click to add a description for this link" />
-      <p v-else class="description">
+      <LinkEditor v-if="editable" v-model="linkDescription" placeholder="Add a description …" />
+      <!-- <textarea-autosize v-if="editable" v-model="linkDescription" :title="editable && 'Click to edit description'" class="no-input description" placeholder="Click to add a description for this link" /> -->
+      <p v-if="!linkDescription" class="description">
         {{ link.meta && link.meta.description }}
       </p>
     </div>
